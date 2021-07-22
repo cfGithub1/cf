@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>个人社保计算</title>
+		<!-- 新 Bootstrap 核心 CSS 文件 -->
+		<link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+		<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+		<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+		<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+		<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script>
+			function jisuan(){
+				var gongzis=document.getElementById("gongzi").value;
+				var regExp=/^[0-9]{4,5}$/;
+				if(!regExp.test(gongzis)){
+					document.getElementById("gongzi").value="输入不合法！";
+					document.getElementById("gongzi").style="color:red";
+					return;
+				}
+				var gongzisum=parseInt(gongzis);
+				document.getElementById("a1").innerText=gongzisum*0.08;
+				document.getElementById("b1").innerText=gongzisum*0.2;
+				document.getElementById("a2").innerText=gongzisum*0.02;
+				document.getElementById("b2").innerText=gongzisum*0.06;
+				document.getElementById("a3").innerText=gongzisum*0.005;
+				document.getElementById("b3").innerText=gongzisum*0.015;
+				document.getElementById("b4").innerText=gongzisum*0.005;
+				document.getElementById("b5").innerText=gongzisum*0.008;
+				document.getElementById("a6").innerText=gongzisum*0.12;
+				document.getElementById("b6").innerText=gongzisum*0.12;
+				document.getElementById("asum").innerText=gongzisum*0.225;
+				document.getElementById("bsum").innerText=gongzisum*0.408;
+				document.getElementById("sum").innerText=gongzisum*1.408;
+			}
+			function aclear(){
+			document.getElementById("gongzi").value='';
+			document.getElementById("gongzi").style="color:black";
+		}
+		</script>
+	</head>
+	<body>
+		<div class="container text-center">
+			<img src="nuclogored.jpg" class="img-circle" width="100px" height="100px">
+			<table class="table table-bordered text-center">
+				<tr>
+					<td>工资</td>
+					<td colspan="3"><input onfocus="aclear()" type="text" placeholder="请输入工资" class="form-control" id="gongzi"></td>
+					<td><button onclick="jisuan()" class="btn-danger btn-block">计算</button></td>
+				</tr>
+				<tr class="bg-primary">
+					<td>险种</td>
+					<td>个人%</td>
+					<td>个人</td>
+					<td>公司%</td>
+					<td>公司</td>
+				</tr>
+				<tr>
+					<td>养老</td>
+					<td>8%</td>
+					<td id="a1"></td>
+					<td>20%</td>
+					<td id="b1"></td>
+				</tr>
+				<tr>
+					<td>医疗</td>
+					<td>2%</td>
+					<td id="a2"></td>
+					<td>6%</td>
+					<td id="b2"></td>
+				</tr>
+				<tr>
+					<td>失业</td>
+					<td>0.5%</td>
+					<td id="a3"></td>
+					<td>1.5%</td>
+					<td id="b3"></td>
+				</tr>
+				<tr>
+					<td>工伤</td>
+					<td></td>
+					<td></td>
+					<td>0.5%</td>
+					<td id="b4"></td>
+				</tr>
+				<tr>
+					<td>生育</td>
+					<td></td>
+					<td></td>
+					<td>0.8%</td>
+					<td id="b5"></td>
+				</tr>
+				<tr>
+					<td>公积金</td>
+					<td>12%</td>
+					<td id="a6"></td>
+					<td>12%</td>
+					<td id="b6"></td>
+				</tr>
+				<tr>
+					<td>合计</td>
+					<td>个人合计</td>
+					<td id="asum"></td>
+					<td>公司合计</td>
+					<td id="bsum"></td>
+				</tr>
+				<tr>
+					<td>总额</td>
+					<td colspan="4" id="sum"></td>
+				</tr>
+			</table>
+			开发者：张宸菲 中北大学软件学院小学期实训 
+		</div>
+	</body>
+</html>
